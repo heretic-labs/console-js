@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/heretic-labs/console-js/issues"
   },
-  "homepage": "https://github.com/heretic-labs/console-js#readme"
+  "homepage": "https://github.com/heretic-labs/console-js#readme",
+  "dependencies": {
+    "@heretic-labs/storage-js": "1.0.0"
+  }
 }

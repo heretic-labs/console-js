@@ -1,9 +1,9 @@
 /**
- * @fileoverview PWA console helpers
+ * @fileoverview Console Helpers
  */
 class Console {
     /**
-     * @description send message to windows console log
+     * @description send message to window console log
      * @param {string} msg 
      * @param {object} params (optional)
      */
