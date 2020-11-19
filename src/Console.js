@@ -1,7 +1,12 @@
 /**
  * @fileoverview Console Helpers
  */
+
+import Storage from '../node_modules/@heretic-labs/storage-js';
+
 class Console {
+    KEY_DEBUG = 'debug';
+
     /**
      * @description send message to window console log
      * @param {string} msg 
@@ -28,7 +33,8 @@ class Console {
             if (this.is.empty(msg)) {
                 throw 'msg is empty';
             }
-            if (!ID10T.is.true(ID10T.storage.get(ID10T.storage.KEY.DEBUG))) {
+            let storage = new Storage();
+            if (!storage.hasKey(KEY_DEBUG)) {
                 throw 'debug flag not set';
             }
             this.log('[debug] ' + msg, params);
