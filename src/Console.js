@@ -2,8 +2,11 @@
  * @fileoverview Console Helpers
  */
 
-import Storage from '../node_modules/@heretic-labs/storage-js';
+const Storage = require('../node_modules/@heretic-labs/storage-js');
 
+/**
+ * @description Console Helper Library
+ */
 class Console {
     KEY_DEBUG = 'debug';
 
@@ -17,9 +20,9 @@ class Console {
             if (this.is.empty(msg)) {
                 throw 'msg is empty';
             }
-            windows.console.log(msg, params);
+            console.log(msg, params);
         } catch (ex) {
-            this.error('ID10T.console.log failed, ' + ex);
+            this.error('Console.log failed, ' + ex);
         }
     }
 
@@ -54,9 +57,9 @@ class Console {
             if (this.is.empty(msg)) {
                 throw 'msg is empty';
             }
-            windows.console.error(msg, params);
+            console.error(msg, params);
         } catch (ex) {
-            this.error('ID10T.console.error failed, ' + ex);
+            this.error('Console.error failed, ' + ex);
         }
     }
 
@@ -70,9 +73,9 @@ class Console {
             if (this.is.empty(msg)) {
                 throw 'msg is empty';
             }
-            windows.console.warn(msg, params);
+            console.warn(msg, params);
         } catch (ex) {
-            this.error('ID10T.console.warn failed, ' + ex);
+            this.error('Console.warn failed, ' + ex);
         }
     }
 }
