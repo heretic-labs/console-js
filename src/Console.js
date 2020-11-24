@@ -43,7 +43,6 @@ class Console {
         storage.delete(this.KEY_DEBUG);
     }
 
-
     /**
      * @description Send error message to console
      * @param {string} msg 
@@ -60,6 +59,15 @@ class Console {
      */
     warn = function (msg = '', params = {}) {
         console.warn(msg, params);
+    }
+
+    /**
+     * @description SEnding Info message to console
+     * @param {any} msg
+     * @param {any} params
+     */
+    info = function (msg = '', params = {}) {
+        console.info(msg, params);
     }
 }
 
