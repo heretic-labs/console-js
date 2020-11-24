@@ -56,4 +56,16 @@ describe('Console-js', function () {
             expect(console.log).not.toHaveBeenCalled();
         })
     })
+
+    describe('info', function () {
+
+        it('success', function () {
+            let msg = 'foo', params = {};
+            const c = new Console();
+
+            c.info(msg, params);
+
+            expect(console.info).toHaveBeenCalledWith(msg, params);
+        })
+    })
 });
