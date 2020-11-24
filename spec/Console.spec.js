@@ -68,4 +68,16 @@ describe('Console-js', function () {
             expect(console.info).toHaveBeenCalledWith(msg, params);
         })
     })
+
+    describe('warn', function () {
+
+        it('success', function () {
+            let msg = 'foo', params = {};
+            const c = new Console();
+
+            c.warn(msg, params);
+
+            expect(console.warn).toHaveBeenCalledWith(msg, params);
+        })
+    })
 });
