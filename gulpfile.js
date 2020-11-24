@@ -9,8 +9,7 @@ gulp.task('clean', function () {
 
 gulp.task('js', function () {
     return gulp.src(["src/*.js"], { "allowEmpty": true })
-        .pipe(concat("is.js"))
-        .pipe(minify())
+        .pipe(concat("Console.js"))
         .pipe(gulp.dest("dist"))
         ;
 });

@@ -10,20 +10,15 @@ const Storage = require('../node_modules/@heretic-labs/storage-js');
 class Console {
     KEY_DEBUG = 'debug';
 
+    constructor() { }
+
     /**
      * @description send message to window console log
      * @param {string} msg 
      * @param {object} params (optional)
      */
-    log = function (msg, params = {}) {
-        try {
-            if (this.is.empty(msg)) {
-                throw 'msg is empty';
-            }
-            console.log(msg, params);
-        } catch (ex) {
-            this.error('Console.log failed, ' + ex);
-        }
+    log = function (msg, params) {
+        console.log(msg, params);
     }
 
     /**
@@ -31,36 +26,31 @@ class Console {
      * @param {string} msg 
      * @param {object} params (optional)
      */
-    debug = function (msg, params = {}) {
-        try {
-            if (this.is.empty(msg)) {
-                throw 'msg is empty';
-            }
-            let storage = new Storage();
-            if (!storage.hasKey(KEY_DEBUG)) {
-                throw 'debug flag not set';
-            }
+    debug = function (msg = '', params = {}) {
+        let storage = new Storage();
+        if (storage.hasKey(storage.KEY_DEBUG)) {
             this.log('[debug] ' + msg, params);
-        } catch (ex) {
-            // tell no one 
         }
-
     }
+
+    _setDebugKey = function () {
+        let storage = new Storage();
+        storage.set(this.KEY_DEBUG, 'true');
+    }
+
+    _clearDebugKey = function () {
+        let storage = new Storage();
+        storage.delete(this.KEY_DEBUG);
+    }
+
 
     /**
      * @description Send error message to console
      * @param {string} msg 
      * @param {object} params (optional)
      */
-    error = function (msg, params = {}) {
-        try {
-            if (this.is.empty(msg)) {
-                throw 'msg is empty';
-            }
-            console.error(msg, params);
-        } catch (ex) {
-            this.error('Console.error failed, ' + ex);
-        }
+    error = function (msg = '', params = {}) {
+        console.error(msg, params);
     }
 
     /**
@@ -68,16 +58,9 @@ class Console {
      * @param {string} msg 
      * @param {object} params 
      */
-    warn = function (msg, params = {}) {
-        try {
-            if (this.is.empty(msg)) {
-                throw 'msg is empty';
-            }
-            console.warn(msg, params);
-        } catch (ex) {
-            this.error('Console.warn failed, ' + ex);
-        }
+    warn = function (msg = '', params = {}) {
+        console.warn(msg, params);
     }
 }
 
-module.exports = { Console };
+module.exports = Console;
