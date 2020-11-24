@@ -80,4 +80,16 @@ describe('Console-js', function () {
             expect(console.warn).toHaveBeenCalledWith(msg, params);
         })
     })
+
+    describe('error', function () {
+
+        it('success', function () {
+            let msg = 'foo', params = {};
+            const c = new Console();
+
+            c.error(msg, params);
+
+            expect(console.error).toHaveBeenCalledWith(msg, params);
+        })
+    })
 });
