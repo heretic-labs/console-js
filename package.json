@@ -2,7 +2,7 @@
   "name": "@heretic-labs/console-js",
   "version": "1.0.0",
   "description": "Console Helper Library",
-  "main": "index.js",
+  "main": "dist/Console.js",
   "scripts": {
     "test": "jasmine"
   },
@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/heretic-labs/console-js#readme",
   "dependencies": {
-    "@heretic-labs/storage-js": "^1.0.2",
+    "@heretic-labs/storage-js": "^1.0.2"
+  },
+  "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
